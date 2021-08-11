@@ -6,8 +6,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TasksComponent } from './pages/tasks/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
+import { DynamicsComponent } from './pages/dynamics/dynamics.component';
 
 const routes: Routes = [
+  {
+    path: 'dynamics',
+    component: DynamicsComponent,
+    canActivate: [ AuthGuardService ]
+  },
   {
     path: 'tasks',
     component: TasksComponent,

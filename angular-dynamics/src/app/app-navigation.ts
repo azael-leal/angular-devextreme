@@ -17,5 +17,10 @@ export const navigation = [
         path: '/tasks'
       }
     ]
-  }
+  },
+  {
+    text: 'Dynamics',
+    path: '/dynamics',
+    icon: 'contentlayout'
+  },
 ];

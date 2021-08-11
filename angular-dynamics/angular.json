@@ -39,6 +39,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "file-saver",
+              "exceljs"
+            ],
             "outputPath": "dist/angular-dynamics",
             "index": "src/index.html",
             "main": "src/main.ts",
