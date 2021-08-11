@@ -6,12 +6,58 @@ import { Observable } from 'rxjs';
 
 // Interfaces - Models
 import { User } from './user';
+import { Products } from './products';
 import { Employees } from './employees';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DynamicsService {
+
+  private readonly products: Products[] = [
+    {
+      id: 1,
+      name: 'Green Tea',
+      amount: 8,
+      cost: 499.99,
+      img: 'https://www.heb.com.mx/media/catalog/product/cache/9f5ec31302878493d9ed0ac40a398e12/4/1/419694_1498173554.jpg',
+    },
+    {
+      id: 2,
+      name: 'OMEGA 3-6-9',
+      amount: 3,
+      cost: 23.00,
+      img: 'https://www.heb.com.mx/media/catalog/product/cache/9f5ec31302878493d9ed0ac40a398e12/6/9/697933_1310820080.jpg',
+    },
+    {
+      id: 3,
+      name: 'Sucralosa',
+      amount: 29,
+      cost: 57.50,
+      img: 'https://www.heb.com.mx/media/catalog/product/cache/9f5ec31302878493d9ed0ac40a398e12/2/8/287895_image.png',
+    },
+    {
+      id: 4,
+      name: 'Jamón de pierna de cerdo',
+      amount: 6,
+      cost: 220.00,
+      img: 'https://www.heb.com.mx/media/catalog/product/cache/9f5ec31302878493d9ed0ac40a398e12/7/8/788506_image.png',
+    },
+    {
+      id: 5,
+      name: 'Coliflor',
+      amount: 2,
+      cost: 40.99,
+      img: 'https://www.heb.com.mx/media/catalog/product/cache/9f5ec31302878493d9ed0ac40a398e12/2/3/23817.jpg',
+    },
+    {
+      id: 5,
+      name: 'Queso Panela',
+      amount: 17,
+      cost: 102.50,
+      img: 'https://www.heb.com.mx/media/catalog/product/cache/9f5ec31302878493d9ed0ac40a398e12/7/7/777589_image.png',
+    }
+  ]
 
   private readonly employees: Employees[] = [{
     "ID": 1,
@@ -42,6 +88,10 @@ export class DynamicsService {
   constructor(
     private readonly http: HttpClient
   ) { }
+
+  getProducts(): Products[] {
+    return this.products;
+  }
 
   getEmployees(): Employees[] {
     return this.employees;

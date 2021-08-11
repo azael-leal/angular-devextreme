@@ -1,4 +1,4 @@
-<dx-data-grid id="gridContainer" [dataSource]="employees" keyExpr="ID" [showBorders]="true" [showRowLines]="true"
+<!-- <dx-data-grid id="gridContainer" [dataSource]="employees" keyExpr="ID" [showBorders]="true" [showRowLines]="true"
   [showColumnLines]="false" (onExporting)="onExportingBase64Default($event)">
   <dxi-column dataField="Picture" cellTemplate="cellTemplate" width="90px"></dxi-column>
   <dxi-column dataField="FirstName"></dxi-column>
@@ -12,20 +12,41 @@
   </div>
 
   <dxo-export [enabled]="true"></dxo-export>
-</dx-data-grid>
+</dx-data-grid> -->
 
 
-<dx-data-grid id="gridContainer" [dataSource]="users" keyExpr="id" [showBorders]="true" [showRowLines]="true"
+<dx-data-grid id="gridContainer" [dataSource]="products" keyExpr="id" [showBorders]="true" [showRowLines]="true"
   [showColumnLines]="false" (onExporting)="onExporting($event)">
-  <dxi-column dataField="avatar" cellTemplate="cellTemplate" width="90px"></dxi-column>
-  <dxi-column dataField="id"></dxi-column>
-  <dxi-column dataField="first_name"></dxi-column>
-  <dxi-column dataField="last_name"></dxi-column>
-  <dxi-column dataField="email"></dxi-column>
+
+  <dxo-editing [allowUpdating]="true" mode="popup">
+    <dxo-form labelLocation="top"></dxo-form>
+    <dxo-popup [showTitle]="true" title="Edición"></dxo-popup>
+
+    <dxo-form>
+      <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+        <dxi-item dataField="id" [disabled]="true"></dxi-item>
+        <dxi-item dataField="img" [disabled]="true"></dxi-item>
+        <dxi-item dataField="name"></dxi-item>
+        <dxi-item dataField="cost"></dxi-item>
+        <dxi-item dataField="amount"></dxi-item>
+      </dxi-item>
+    </dxo-form>
+  </dxo-editing>
+
+  <dxi-column dataField="img" caption="Imagen" alignment="center" cellTemplate="cellTemplate" width="200px">
+  </dxi-column>
+  <dxi-column dataField="id" caption="ID" alignment="center" width="70px"></dxi-column>
+  <dxi-column dataField="name" caption="Producto" alignment="center"></dxi-column>
+  <dxi-column dataField="cost" caption="Costo" alignment="center"></dxi-column>
+  <dxi-column dataField="amount" caption="Cantidad disponible" alignment="center"></dxi-column>
 
   <div *dxTemplate="let cell of 'cellTemplate'">
     <img src="{{cell.value}}">
   </div>
 
   <dxo-export [enabled]="true"></dxo-export>
+
+  <dxo-paging [pageSize]="3"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
 </dx-data-grid>
