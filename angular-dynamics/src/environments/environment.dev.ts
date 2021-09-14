@@ -1,4 +1,4 @@
-import { IEnvironment } from "@core/interfaces";
+import { IEnvironment } from '@core/interfaces';
 
 export const environment: IEnvironment = {
   production: true,

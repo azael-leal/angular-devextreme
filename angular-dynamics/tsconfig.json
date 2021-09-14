@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -22,7 +22,31 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "strictPropertyInitialization": false,
+    "paths": {
+      "@assets/*": ["app/assets/*"],
+      "@environments": ["environments/environment.ts"],
+      "@core": ["app/core/core.module.ts"],
+      "@core/modules/*": ["app/core/modules/*"],
+      "@core/enums": ["app/core/enums/index.ts"],
+      "@core/guards": ["app/core/guards/index.ts"],
+      "@core/models": ["app/core/models/index.ts"],
+      "@core/services": ["app/core/services/index.ts"],
+      "@core/constants": ["app/core/constants/index.ts"],
+      "@core/resolvers": ["app/core/resolvers/index.ts"],
+      "@core/interfaces": ["app/core/interfaces/index.ts"],
+      "@core/validators": ["app/core/validators/index.ts"],
+      "@core/interceptors": ["app/core/interceptors/index.ts"],
+      "@shared": ["app/shared/shared.module.ts"],
+      "@shared/pipes": ["app/shared/pipes/shared-pipes.module.ts"],
+      "@shared/dialogs": ["app/shared/dialogs/shared-dialogs.module.ts"],
+      "@shared/directives": ["app/shared/directive/directives.module.ts"],
+      "@shared/devextreme": ["app/shared/devextreme/devextreme.module.ts"],
+      "@shared/components": ["app/shared/components/shared-components.module.ts"],
+      "@shared/angular-material/components/*": ["app/shared/angular-material/components/*"],
+      "@shared/angular-material": ["app/shared/angular-material/angular-material.module.ts"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
